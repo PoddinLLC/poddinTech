@@ -1,4 +1,5 @@
-/.DS_Store
-/.agents
-/.claude
-/.dart_tool
+.DS_Store
+.agents
+.claude
+.dart_tool
+_* 
