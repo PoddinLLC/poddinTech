@@ -919,3 +919,13 @@ html {
 /* Service hero: back link above the grid. Stretches the grid to the full container (like the About hero). */
 .hero-stack { display: flex; flex-direction: column; gap: 40px; }
 .hero-stack > .lnk { align-self: flex-start; }
+
+/* Sticky header. Anchored sections stop just below it: PageMeta measures the header and sets --header-h. */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+}
+section[id] {
+  scroll-margin-top: var(--header-h, 66px);
+}
