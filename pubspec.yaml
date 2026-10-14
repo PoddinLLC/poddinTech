@@ -1,6 +1,6 @@
-name: tech
-description: A new Jaspr project
-version: 0.0.1
+name: poddin_tech
+description: Poddin Technology Limited website.
+version: 1.0.0
 
 environment:
   sdk: ^3.11.5
@@ -19,3 +19,4 @@ dev_dependencies:
 jaspr:
   mode: client
   styles: standalone
+  port: 5124

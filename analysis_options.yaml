@@ -30,9 +30,9 @@ plugins:
 
 # Uncomment the following section to enable or disable additional rules.
 
-# linter:
-#   rules:
-#     camel_case_types: true
+linter:
+  rules:
+    prefer_relative_imports: true
 
 # For more information about the core and recommended set of lints, see
 # https://dart.dev/go/core-lints
