@@ -1,14 +1,16 @@
 import 'package:jaspr/dom.dart' hide Padding, Transform, Visibility;
 import 'package:jaspr/jaspr.dart';
-import 'package:naki_ui/framework.dart';
 import 'package:naki_ui/naki_ui.dart';
-import 'package:naki_ui/theme.dart';
-import '../content/company.dart';
 
+import '../content/company.dart';
+import 'page_meta.dart';
 import 'site_footer.dart';
 import 'site_header.dart';
 
 /// Header, page content and footer shared by every route.
+///
+/// This is deliberately a plain layout rather than Naki's `Scaffold`: `Scaffold` renders a `Document.head`
+/// fragment per page, which breaks client-side route changes (see [PageMeta]).
 class PageShell extends StatelessComponent {
   const PageShell({required this.children, required this.seo, super.key});
 
@@ -17,14 +19,12 @@ class PageShell extends StatelessComponent {
 
   @override
   Component build(BuildContext context) {
-    return Scaffold(
-      seo: SEO(title: seo.title, description: seo.description),
-      appBar: const SiteHeader(),
-      body: SingleChildScrollView(
-        classes: 'page',
-        child: Column(children: [...children, const SiteFooter()], crossAxisAlignment: CrossAxisAlignment.stretch),
-      ),
-    );
+    return div(classes: 'page', [
+      PageMeta(seo),
+      MediaQueryProvider(builder: (_) => const SiteHeader()),
+      main_(classes: 'page-main', children),
+      const SiteFooter(),
+    ]);
   }
 }
 
@@ -57,7 +57,7 @@ class Band extends StatelessComponent {
       [
         div(
           classes: 'container band-inner',
-          styles: Styles(raw: {'--band-pt': top.toPx, '--band-pb': bottom.toPx}),
+          styles: Styles(raw: {'--band-pt': '${top}px', '--band-pb': '${bottom}px'}),
           children,
         ),
       ],
