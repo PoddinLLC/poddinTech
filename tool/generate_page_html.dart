@@ -96,7 +96,10 @@ String _render(_Page page) {
 /// Collapses whitespace so an editor re-wrapping a long tag is not mistaken for a stale file.
 String _normalize(String html) => html.replaceAll(RegExp(r'\s+'), ' ').replaceAll('> <', '><').trim();
 
-File _fileFor(_Page page) => File(page.path == '/' ? 'web/index.html' : 'web${page.path}/index.html');
+/// `/about` is written to `about.html`, not `about/index.html`. GitHub Pages and Firebase both serve `/about` from
+/// `about.html` as is, while `about/index.html` makes GitHub Pages redirect to `/about/`, which no longer matches
+/// the canonical URL.
+File _fileFor(_Page page) => File(page.path == '/' ? 'web/index.html' : 'web${page.path}.html');
 
 void main(List<String> args) {
   final check = args.contains('--check');
