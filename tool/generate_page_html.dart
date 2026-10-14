@@ -64,6 +64,10 @@ String _render(_Page page) {
     '    <link rel="stylesheet" href="$_fontStylesheet">',
     '    <link rel="stylesheet" href="/main.css">',
     '    <link rel="stylesheet" href="/site.css">',
+    // The images above the fold. The app only requests them once it has booted and rendered, so preloading
+    // starts the downloads with the page and stops the logo and hero popping in late.
+    '    <link rel="preload" as="image" href="/images/logo.png">',
+    if (page.path == '/') '    <link rel="preload" as="image" href="/images/hero-systems.svg">',
     meta('property', 'og:type', 'website'),
     meta('property', 'og:site_name', _escape(Company.name)),
     meta('property', 'og:locale', 'en'),
