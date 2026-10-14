@@ -20,7 +20,7 @@ class CtaBand extends StatelessComponent {
       children: [
         div(classes: 'cta-row', [
           div(classes: 'cta-title', [Title(title, size: 'h-cta', light: true)]),
-          const LinkButton(label: 'Talk to our team', to: '/#contact', style: LinkButtonStyle.light),
+          const LinkButton(label: 'Get in touch', to: '/#contact', style: LinkButtonStyle.light),
         ]),
       ],
     );

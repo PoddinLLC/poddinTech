@@ -5,13 +5,15 @@ import 'package:naki_ui/framework.dart' hide Document;
 
 import '../content/company.dart';
 
-/// Sets the document title and social meta tags for the page that is showing, and positions the viewport when a
-/// page appears: at the URL's `#anchor` if it has one, otherwise at the top (the router keeps the previous scroll
-/// position, and the browser cannot scroll to an anchor that has not rendered yet).
+/// Sets the document title and social meta tags for the page that is showing, and
+/// positions the viewport when a page appears: at the URL's `#anchor` if it has
+/// one, otherwise at the top (the router keeps the previous scroll position, and
+/// the browser cannot scroll to an anchor that has not rendered yet).
 ///
-/// This updates the live document instead of rendering `Document.head` (which `Scaffold(seo: ...)` also
-/// does). In client mode, a `Document.head` fragment inside a route cannot be removed when the router swaps
-/// pages, and Jaspr throws "Cannot remove fragment from a different parent" on the first link click.
+/// This updates the live document instead of rendering `Document.head` (which
+/// `Scaffold(seo: ...)` also does). In client mode, a `Document.head` fragment
+/// inside a route cannot be removed when the router swaps pages, and Jaspr throws
+/// "Cannot remove fragment from a different parent" on the first link click.
 /// The global defaults still come from `NakiApp.router(seo: ...)`.
 class PageMeta extends StatefulComponent {
   const PageMeta(this.seo, {super.key});
@@ -40,8 +42,9 @@ class _PageMetaState extends State<PageMeta> {
     _dropStaticMeta();
     _apply();
     _showPage();
-    // Following an in-page link such as /#products changes only the hash. The browser then looks for the
-    // anchor but the framework's own handling swallows the scroll, so scroll to it here.
+    // Following an in-page link such as /#products changes only the hash. The browser
+    // then looks for the anchor but the framework's own handling swallows the scroll,
+    // so scroll to it here.
     _hashListener = EventStreamProviders.hashChangeEvent.forTarget(window).listen((_) {
       if (window.location.hash.length > 1) _scrollToHash();
     });
@@ -51,11 +54,13 @@ class _PageMetaState extends State<PageMeta> {
   void didUpdateComponent(PageMeta oldComponent) {
     super.didUpdateComponent(oldComponent);
     _apply();
-    // Only a different page moves the scroll, so an ordinary rebuild of the same page never jumps.
+    // Only a different page moves the scroll, so an ordinary rebuild of the
+    // same page never jumps.
     if (oldComponent.seo.title != component.seo.title) _showPage();
   }
 
-  /// Positions the viewport for a page that just appeared: at its `#anchor` when the URL has one, else the top.
+  /// Positions the viewport for a page that just appeared: at its `#anchor` when
+  /// the URL has one, else the top.
   void _showPage() {
     if (window.location.hash.length > 1) {
       _scrollToHash();
@@ -64,10 +69,11 @@ class _PageMetaState extends State<PageMeta> {
     }
   }
 
-  /// The app renders in the browser, so the anchor's element does not exist when the browser first looks for it
-  /// and it never scrolls. Scroll once the page has built, then keep the target pinned for a few seconds: lazy
-  /// images and fonts settle after the first frame and move content above it. Pinning stops the moment the
-  /// visitor scrolls, clicks, touches or presses a key.
+  /// The app renders in the browser, so the anchor's element does not exist when
+  /// the browser first looks for it and it never scrolls. Scroll once the page has
+  /// built, then keep the target pinned for a few seconds: lazy images and fonts
+  /// settle after the first frame and move content above it. Pinning stops the
+  /// moment the visitor scrolls, clicks, touches or presses a key.
   void _scrollToHash() {
     _stopSettling();
 
@@ -78,8 +84,9 @@ class _PageMetaState extends State<PageMeta> {
       final target = document.getElementById(id);
       if (target == null) return;
 
-      // The sticky header covers the top of the viewport, so the target belongs just below it. Publishing the
-      // measured height as --header-h lets `section[id] { scroll-margin-top }` apply it to every anchor jump.
+      // The sticky header covers the top of the viewport, so the target belongs
+      // just below it. Publishing the measured height as --header-h lets
+      // `section[id] { scroll-margin-top }` apply it to every anchor jump.
       final offset = document.querySelector('.site-header')?.getBoundingClientRect().height ?? 0;
       document.body?.style.setProperty('--header-h', '${offset}px');
 
@@ -115,9 +122,10 @@ class _PageMetaState extends State<PageMeta> {
     _interactionListeners.clear();
   }
 
-  /// Removes the tags each page's HTML ships with for crawlers (see `tool/generate_page_html.dart`). Once the
-  /// app is running, NakiApp and this component keep the title and meta tags current as the visitor
-  /// navigates, and keeping both would leave duplicates.
+  /// Removes the tags each page's HTML ships with for crawlers (see
+  /// `tool/generate_page_html.dart`). Once the app is running, NakiApp and this
+  /// component keep the title and meta tags current as the visitor navigates,
+  /// and keeping both would leave duplicates.
   void _dropStaticMeta() {
     final stale = document.querySelectorAll('[data-seo="static"]');
     for (var i = 0; i < stale.length; i++) {

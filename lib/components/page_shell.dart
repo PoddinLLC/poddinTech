@@ -9,8 +9,9 @@ import 'site_header.dart';
 
 /// Header, page content and footer shared by every route.
 ///
-/// This is deliberately a plain layout rather than Naki's `Scaffold`: `Scaffold` renders a `Document.head`
-/// fragment per page, which breaks client-side route changes (see [PageMeta]).
+/// This is deliberately a plain layout rather than Naki's `Scaffold`: `Scaffold` renders
+/// a `Document.head` fragment per page, which breaks client-side route changes
+/// (see [PageMeta]).
 class PageShell extends StatelessComponent {
   const PageShell({required this.children, required this.seo, super.key});
 

@@ -1,11 +1,10 @@
 import 'package:jaspr/dom.dart';
 import 'package:naki_ui/theme.dart';
 
-/// Poddin brand colours (Pantone 4102 / 2040 / 207 / 205 CP) and the neutrals used around them.
-///
-/// Burgundy anchors the page and carries text accents. Crimson is reserved for the one primary
-/// action in a view. Rose (deepened from Pantone 205 CP so white text clears 4.5:1) fills
-/// full-width bands.
+/// Poddin brand colours (Pantone 4102 / 2040 / 207 / 205 CP) and the neutrals
+/// used around them. Burgundy anchors the page and carries text accents.
+/// Crimson is reserved for the one primary action in a view. Rose (deepened from
+/// Pantone 205 CP so white text clears 4.5:1) fills full-width bands.
 abstract final class Palette {
   static const burgundy = Color('#6B2433');
   static const crimson = Color('#D91E52');
@@ -23,7 +22,8 @@ abstract final class Palette {
 
 const _typography = TypographyScheme(fontFamily: ['IBM Plex Sans', 'system-ui', 'sans-serif']);
 
-/// The approved design is light only, so [DarkThemeData] mirrors the defaults and is never selected.
+/// The approved design is light only, so [DarkThemeData] mirrors the
+/// defaults and is never selected.
 const lightTheme = LightThemeData(
   colorSeed: ColorSeed(
     primary: Palette.crimson,

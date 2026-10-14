@@ -2,7 +2,8 @@ import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 import 'package:jaspr_router/jaspr_router.dart';
 
-/// A navigation link styled as a button. Use Naki's `Button` for actions, `Link` for navigation.
+/// A navigation link styled as a button. Use Naki's `Button` for actions,
+/// `Link` for navigation.
 enum LinkButtonStyle { primary, light }
 
 class LinkButton extends StatelessComponent {
@@ -29,7 +30,8 @@ class LinkButton extends StatelessComponent {
   }
 }
 
-/// An in-text link, e.g. "Explore PoddinPay →". Pass [external] for links that leave the site.
+/// An in-text link, e.g. "Explore PoddinPay →". Pass [external] for links that
+/// leave the site.
 class TextLink extends StatelessComponent {
   const TextLink({required this.label, required this.to, this.external = false, this.arrow = true, super.key});
 
@@ -44,8 +46,8 @@ class TextLink extends StatelessComponent {
   }
 }
 
-/// Router [Link] for in-app routes. Anchors (`/#contact`) and external URLs use a plain `<a>` so the
-/// browser handles scrolling and navigation natively.
+/// Router [Link] for in-app routes. Anchors (`/#contact`) and external URLs
+/// use a plain `<a>` so the browser handles scrolling and navigation natively.
 class SiteLink extends StatelessComponent {
   const SiteLink({required this.to, required this.classes, required this.child, this.external = false});
 

@@ -117,8 +117,7 @@ class _PoddinPayRow extends StatelessComponent {
           child: BrowserFrame(
             src: 'images/products/poddinpay-form-light.jpg',
             alt:
-                "PoddinPay's payment link page: a form for the item being sold, price, customer contact, delivery "
-                'duration and payout details',
+                "PoddinPay's payment link page: a form for the item being sold, price, customer contact, delivery duration and payout details",
             address: 'poddinpay.com/create-payment-link',
           ),
         ),
@@ -130,9 +129,7 @@ class _PoddinPayRow extends StatelessComponent {
           Eyebrow('PoddinPay'),
           Title('Escrow and payment links for social commerce.', level: 3, size: 'h-product'),
           Copy(
-            'Launched in May 2026, PoddinPay is a web-based platform that protects individuals and businesses '
-            'transacting on social networks from fraud. Generate a payment link and use escrow to build confidence '
-            'between buyers and sellers.',
+            'Launched in May 2026, PoddinPay is a web-based platform that protects individuals and businesses transacting on social networks from fraud. Generate a payment link and use escrow to build confidence between buyers and sellers.',
             variant: 'text',
           ),
           TextLink(label: 'Explore PoddinPay', to: 'https://poddinpay.com', external: true),
@@ -188,8 +185,7 @@ class _PoddinAppRow extends StatelessComponent {
           const Eyebrow('PoddinApp'),
           const Title('A consumer platform with protection and support built in.', level: 3, size: 'h-product'),
           const Copy(
-            'Launched in November 2024 to make online transactions secure, reward users and support businesses and '
-            'consumers. Available on Google Play, the App Store and Huawei AppGallery.',
+            'Launched in November 2024 to make online transactions secure, reward users and support businesses and consumers. Available on Google Play, the App Store and Huawei AppGallery.',
             variant: 'text',
           ),
           Column(
@@ -236,8 +232,7 @@ class _AlsoFromPoddin extends StatelessComponent {
             Eyebrow('Poddin AI and Poddin Bot'),
             Title('Intelligent assistance where people already are.', level: 3, size: 'h-feature'),
             Copy(
-              'Available through PoddinApp, WhatsApp and Telegram, removing barriers to entry and making PoddinApp '
-              'accessible to everyone.',
+              'Available through PoddinApp, WhatsApp and Telegram, removing barriers to entry and making PoddinApp accessible to everyone.',
               variant: 'small',
             ),
             TextLink(label: 'Explore PoddinAI', to: 'https://poddinapp.com/bot', external: true),

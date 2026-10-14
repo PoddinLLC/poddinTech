@@ -11,7 +11,8 @@ import '../components/page_shell.dart';
 import '../components/typography.dart';
 import '../content/services.dart';
 
-/// Title block of a service page: back link, headline and a "best for / what you get" summary.
+/// Title block of a service page: back link, headline and a
+/// "best for / what you get" summary.
 class ServiceHero extends StatelessComponent {
   const ServiceHero(this.service, {super.key});
 
@@ -23,8 +24,9 @@ class ServiceHero extends StatelessComponent {
       top: 56,
       bottom: 80,
       children: [
-        // A plain stretched flex container, not a start-aligned Column: a Column would shrink the grid to its
-        // content width, so the number of columns would depend on how much text each service has.
+        // A plain stretched flex container, not a start-aligned Column: a Column
+        // would shrink the grid to its content width, so the number of columns
+        // would depend on how much text each service has.
         div(classes: 'hero-stack', [
           const TextLink(label: '← All services', to: '/#services', arrow: false),
           div(classes: 'grid grid--center', styles: Styles(raw: {'--min': '380px', '--gap': '64px'}), [

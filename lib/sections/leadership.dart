@@ -9,7 +9,8 @@ import '../components/page_shell.dart';
 import '../components/typography.dart';
 import '../content/company.dart';
 
-/// Square greyscale portrait. Greyscale keeps three differently lit photographs consistent.
+/// Square greyscale portrait. Greyscale keeps three differently
+/// lit photographs consistent.
 class Portrait extends StatelessComponent {
   const Portrait({
     required this.leader,
@@ -70,7 +71,7 @@ class _LeaderCard extends StatelessComponent {
             div([
               div(classes: 'leader-name', [.text(leader.name)]),
               div(classes: 'leader-role', [.text(leader.role)]),
-              div(classes: 'leader-since', [.text(leader.since)]),
+              // div(classes: 'leader-since', [.text(leader.since)]),
             ]),
             p(classes: 'small', [.text(leader.bio)]),
             div(classes: 'leader-highlight', [.text(leader.highlight)]),

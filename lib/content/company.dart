@@ -63,8 +63,7 @@ const leaders = [
     role: 'Founder and Chief Executive Officer',
     since: 'December 2021 to present',
     bio:
-        "Leads Poddin's vision and direction, with more than a decade of combined experience and a background in "
-        'strategic marketing.',
+        "Leads Poddin's vision and direction, with more than a decade of combined experience and a background in strategic marketing.",
     highlight: 'Certificate of Congressional Recognition, U.S. House of Representatives, December 2023',
     image: 'images/team/samuel.png',
     focusY: 40,
@@ -74,9 +73,8 @@ const leaders = [
     role: 'Chief Operations Officer',
     since: 'March 2025 to present',
     bio:
-        'Translates strategic priorities into coordinated action, bringing operational focus, team alignment and '
-        'clear communication.',
-    highlight: 'TEDx licensee and lead organiser',
+        'Translates strategic priorities into coordinated action, bringing operational focus, team alignment and clear communication.',
+    highlight: 'TEDx Licensee and McKinsey Certified Leader',
     image: 'images/team/leader-bill.png',
     focusY: 35,
   ),
@@ -84,9 +82,7 @@ const leaders = [
     name: 'Idara Israel',
     role: 'Relationships Manager',
     since: 'September 2026 to present',
-    bio:
-        'Builds and nurtures the relationships that connect Poddin with its customers, partners and wider '
-        'community.',
+    bio: 'Builds and nurtures the relationships that connect Poddin with its customers, partners and wider community.',
     highlight: 'Winning team and Best Oralist, 2026 World Intellectual Property Moot Court Competition',
     image: 'images/team/idara.png',
     focusY: 30,
@@ -189,9 +185,3 @@ const aboutPageSeo = PageSeo(
   description:
       'Learn about Poddin Technologies, our mission, and the team turning real-world challenges into practical software and intelligent solutions.',
 );
-
-// const servicesPageSeo = PageSeo(
-//   title: 'Services | Poddin Technologies',
-//   description:
-//       'Explore custom software and AI development by Poddin Technologies. We build intuitive, scalable solutions for businesses of every size.',
-// );

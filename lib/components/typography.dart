@@ -20,7 +20,8 @@ class Eyebrow extends StatelessComponent {
   }
 }
 
-/// A semantic heading whose size comes from a `.h-*` class so it can change at the phone breakpoint.
+/// A semantic heading whose size comes from a `.h-*` class so it can
+/// change at the phone breakpoint.
 class Title extends StatelessComponent {
   const Title(this.text, {this.level = 2, this.size = 'h-section', this.light = false, super.key});
 

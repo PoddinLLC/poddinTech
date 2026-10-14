@@ -43,8 +43,8 @@ jobs:
           dart pub get
           dart run tool/generate_page_html.dart --check
           jaspr build
-          # GitHub Pages serves 404.html for unknown paths. Reusing the app shell lets the router show its own
-          # not-found page.
+          # GitHub Pages serves 404.html for unknown paths. Reusing the
+          # app shell lets the router show its own not-found page.
           cp build/jaspr/index.html build/jaspr/404.html
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

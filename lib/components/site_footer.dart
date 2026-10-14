@@ -44,7 +44,6 @@ class SiteFooter extends StatelessComponent {
             _footerLink('PoddinApp', 'https://poddinapp.com/install', external: true),
             _footerLink('PoddinAI and PoddinBot', 'https://poddinapp.com/bot', external: true),
             _footerLink('PoddinPay', 'https://poddinpay.com', external: true),
-            span(classes: 'footer-muted', [.text('Coming soon')]),
           ],
         ),
         _FooterColumn(

@@ -1,27 +1,33 @@
-// Writes one HTML entry point per route, each with that page's title, description, canonical URL and
-// Open Graph / Twitter tags already in the markup.
+// Writes one HTML entry point per route, each with that page's title,
+// description, canonical URL and Open Graph / Twitter tags already in
+// the markup.
 //
-// The site renders in the browser, so the HTML a server returns is an empty shell. Social crawlers
-// (WhatsApp, Facebook, LinkedIn, X) and most link unfurlers do not run JavaScript, so without this every link
-// preview is blank. Static hosts serve `about/index.html` for `/about`, and the app boots over it as usual.
+// The site renders in the browser, so the HTML a server returns is an empty
+// shell. Social crawlers (WhatsApp, Facebook, LinkedIn, X) and most link
+// unfurlers do not run JavaScript, so without this every link
+// preview is blank. Static hosts serve `about/index.html` for `/about`, and
+// the app boots over it as usual.
 //
-// Titles and descriptions come from the same data the pages use (`lib/content`), so they cannot drift apart.
+// Titles and descriptions come from the same data the pages use
+// (`lib/content`), so they cannot drift apart.
 //
 //   dart run tool/generate_page_html.dart           write the files into web/
-//   dart run tool/generate_page_html.dart --check   exit 1 if any file is missing or out of date (for CI)
+//   dart run tool/generate_page_html.dart --check   exit 1 if any file is
+// missing or out of date (for CI)
 import 'dart:io';
 
 import 'package:poddin_tech/content/company.dart';
 import 'package:poddin_tech/content/services.dart';
 
-/// Shown in link previews. Must be an absolute URL. 1200 x 630 (1.91:1) is what Facebook, LinkedIn, WhatsApp
-/// and X's large card all expect.
+/// Shown in link previews. Must be an absolute URL. 1200 x 630 (1.91:1) is
+/// what Facebook, LinkedIn, WhatsApp and X's large card all expect.
 const _shareImage = '${Company.siteUrl}/images/og-banner.jpg';
 const _shareImageWidth = 1200;
 const _shareImageHeight = 630;
 const _shareImageAlt = '${Company.name}: ${Company.tagline}';
 
-/// Self-hosted in web/fonts and declared in web/site.css. Preloaded so text renders in Plex on first paint.
+/// Self-hosted in web/fonts and declared in web/site.css. Preloaded so text
+/// renders in Plex on first paint.
 const _preloadedFonts = ['ibm-plex-sans-latin.woff2', 'ibm-plex-serif-500-latin.woff2'];
 
 typedef _Page = ({String path, PageSeo seo});
@@ -44,8 +50,9 @@ String _render(_Page page) {
   final description = _escape(page.seo.description);
   final url = page.path == '/' ? Company.siteUrl : '${Company.siteUrl}${page.path}';
 
-  // Tags marked data-seo="static" are removed by PageMeta once the app boots. After that the app keeps the
-  // title and meta tags current as the visitor navigates, and keeping both would leave duplicates.
+  // Tags marked data-seo="static" are removed by PageMeta once the app
+  // boots. After that the app keeps the title and meta tags current as the
+  // visitor navigates, and keeping both would leave duplicates.
   String meta(String attribute, String key, String content) =>
       '    <meta $attribute="$key" content="$content" data-seo="static">';
 
@@ -63,8 +70,9 @@ String _render(_Page page) {
       '    <link rel="preload" as="font" type="font/woff2" href="/fonts/$font" crossorigin>',
     '    <link rel="stylesheet" href="/main.css">',
     '    <link rel="stylesheet" href="/site.css">',
-    // The images above the fold. The app only requests them once it has booted and rendered, so preloading
-    // starts the downloads with the page and stops the logo and hero popping in late.
+    // The images above the fold. The app only requests them once it has
+    // booted and rendered, so preloading starts the downloads with the
+    // page and stops the logo and hero popping in late.
     '    <link rel="preload" as="image" href="/images/logo.png">',
     if (page.path == '/') '    <link rel="preload" as="image" href="/images/hero-systems.svg">',
     meta('property', 'og:type', 'website'),
@@ -93,11 +101,14 @@ String _render(_Page page) {
   ].join('\n');
 }
 
-/// Collapses whitespace so an editor re-wrapping a long tag is not mistaken for a stale file.
+/// Collapses whitespace so an editor re-wrapping a long tag is not
+/// mistaken for a stale file.
 String _normalize(String html) => html.replaceAll(RegExp(r'\s+'), ' ').replaceAll('> <', '><').trim();
 
-/// `/about` is written to `about.html`, not `about/index.html`. GitHub Pages and Firebase both serve `/about` from
-/// `about.html` as is, while `about/index.html` makes GitHub Pages redirect to `/about/`, which no longer matches
+/// `/about` is written to `about.html`, not `about/index.html`. GitHub
+/// Pages and Firebase both serve `/about` from `about.html` as is, while
+/// `about/index.html` makes GitHub Pages redirect to `/about/`, which no
+/// longer matches
 /// the canonical URL.
 File _fileFor(_Page page) => File(page.path == '/' ? 'web/index.html' : 'web${page.path}.html');
 

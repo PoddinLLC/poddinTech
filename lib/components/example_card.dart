@@ -63,7 +63,8 @@ class ExampleCard extends StatelessComponent {
   }
 }
 
-/// The wide card used for a single flagship example: illustration beside a description and short list.
+/// The wide card used for a single flagship example: illustration beside
+/// a description and short list.
 class SplitExampleCard extends StatelessComponent {
   const SplitExampleCard(this.example, {super.key});
 

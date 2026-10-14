@@ -143,7 +143,7 @@ class _SiteHeaderState extends State<SiteHeader> {
   @override
   Component build(BuildContext context) {
     final location = RouteState.of(context).location;
-    final width = MediaQueryProvider.width(context) ?? 0;
+    final width = MediaQueryProvider.width(context) ?? PlatformData().width;
 
     return header(classes: 'site-header', [
       div(classes: 'container header-row', [

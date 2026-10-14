@@ -176,25 +176,21 @@ const services = [
         'AI-powered applications, assistants and automation that simplify workflows and improve customer experiences.',
     title: 'Artificial intelligence development',
     lead:
-        "We design and build AI-powered assistants, applications and automation that take repetitive work off people's "
-        'plates and make information easier to use.',
+        "We design and build AI-powered assistants, applications and automation that take repetitive work off people's plates and make information easier to use.",
     bestFor:
-        'Teams that want to automate routine questions, make internal knowledge searchable, or add an assistant to a '
-        'product.',
+        'Teams that want to automate routine questions, make internal knowledge searchable, or add an assistant to a product.',
     whatYouGet: 'A working assistant or automation, integrated with the channels your users already use.',
     capabilitiesTitle: 'Practical AI, shaped around your process.',
     capabilities: [
       Capability(
         LucideIcons.icon_message_circle,
         'Conversational assistants',
-        'Assistants that answer questions, guide tasks and hand over to a person when needed, on web, mobile and '
-            'messaging platforms.',
+        'Assistants that answer questions, guide tasks and hand over to a person when needed, on web, mobile and messaging platforms.',
       ),
       Capability(
         LucideIcons.icon_workflow,
         'Workflow automation',
-        'Automation for repetitive back-office steps, such as sorting requests, drafting replies and routing work to '
-            'the right team.',
+        'Automation for repetitive back-office steps, such as sorting requests, drafting replies and routing work to the right team.',
       ),
       Capability(
         LucideIcons.icon_search,
@@ -213,8 +209,7 @@ const services = [
       LogoExample(
         title: 'Poddin AI and Bot',
         text:
-            'Intelligent assistance inside PoddinApp, WhatsApp and Telegram, bringing help to platforms people '
-            'already use.',
+            'Intelligent assistance inside PoddinApp, WhatsApp and Telegram, bringing help to platforms people already use.',
         logo: _poddinLogo,
         logoAlt: '',
         inset: 62,
@@ -227,8 +222,7 @@ const services = [
       LogoExample(
         title: 'IsraelAssembly AI and Bot',
         text:
-            'An AI and WhatsApp bot for Israel Assembly, a provincial headquarters in the Redeemed Christian Church '
-            'of God. Members can check in for services and send feedback or prayer requests anonymously.',
+            'An AI and WhatsApp bot for Israel Assembly, a provincial headquarters in the Redeemed Christian Church of God. Members can check in for services and send feedback or prayer requests anonymously.',
         logo: 'images/partners/rccg.png',
         logoAlt: 'Redeemed Christian Church of God logo',
         inset: 76,
@@ -239,8 +233,7 @@ const services = [
       LogoExample(
         title: 'Versus Player AI',
         text:
-            'A chat-based AI in the Versus Player music app. Listeners describe what they want and it imports songs '
-            'from Spotify, YouTube Music and SoundCloud based on prompts, mood and other parameters.',
+            'A chat-based AI in the Versus Player music app. Listeners describe what they want and it imports songs from Spotify, YouTube Music and SoundCloud based on prompts, mood and other parameters.',
         logo: 'images/partners/versus-logo.svg',
         logoAlt: 'Versus logo',
         inset: 66,
@@ -279,11 +272,9 @@ const services = [
     listBlurb: 'Platforms that help businesses showcase products, connect with customers and sell securely.',
     title: 'Social commerce development',
     lead:
-        'We build platforms where businesses showcase products, connect with customers and sell, with payment '
-        'protection built into the experience.',
+        'We build platforms where businesses showcase products, connect with customers and sell, with payment protection built into the experience.',
     bestFor:
-        'Brands selling through social channels, marketplaces and communities that need customers to trust the '
-        'checkout.',
+        'Brands selling through social channels, marketplaces and communities that need customers to trust the checkout.',
     whatYouGet: 'A storefront and ordering experience with secure payment flows, designed for mobile and web.',
     capabilitiesTitle: 'Selling that customers can trust.',
     capabilities: [
@@ -300,8 +291,7 @@ const services = [
       Capability(
         LucideIcons.icon_message_circle,
         'Chat and support',
-        'Conversations between buyers and sellers inside the experience, with help available when something goes '
-            'wrong.',
+        'Conversations between buyers and sellers inside the experience, with help available when something goes wrong.',
       ),
       Capability(
         LucideIcons.icon_circle_dollar_sign,
@@ -315,8 +305,7 @@ const services = [
       PhoneExample(
         title: 'PoddinApp',
         text:
-            'A consumer platform launched in 2024 where payments are protected until buyers confirm delivery, orders '
-            'earn instant cashback, and support is available in the app.',
+            'A consumer platform launched in 2024 where payments are protected until buyers confirm delivery, orders earn instant cashback, and support is available in the app.',
         shots: [
           Screenshot(_poddinAppFeed, 'PoddinApp screen: a personalised product feed'),
           Screenshot(_poddinAppWallet, 'PoddinApp screen: wallet history showing instant cashback', offsetTop: 36),
@@ -329,12 +318,10 @@ const services = [
       BrowserExample(
         title: 'PoddinPay',
         text:
-            'A web-based escrow and payment link platform, launched in May 2026, that protects people buying and '
-            'selling on social networks from fraud.',
+            'A web-based escrow and payment link platform, launched in May 2026, that protects people buying and selling on social networks from fraud.',
         shot: _poddinPayForm,
         shotAlt:
-            "PoddinPay's payment link page: a form for the item being sold, price, customer contact, delivery "
-            'duration and payout details',
+            "PoddinPay's payment link page: a form for the item being sold, price, customer contact, delivery duration and payout details",
         address: 'poddinpay.com/create-payment-link',
         backdrop: _poddinPayLogo,
         maxWidth: 380,
@@ -393,8 +380,7 @@ const services = [
       PhoneExample(
         title: 'Versus Player',
         text:
-            'A music app that brings songs and playlists from several streaming services into one personal library, '
-            'with tag search and playlists.',
+            'A music app that brings songs and playlists from several streaming services into one personal library, with tag search and playlists.',
         shots: [
           Screenshot(
             'images/products/versus-shot1.jpg',

@@ -5,7 +5,8 @@ import '../components/cards.dart';
 import '../components/page_shell.dart';
 import '../content/company.dart';
 
-/// Milestones and community sponsorship, side by side. [padding] is 44 on the homepage, 72 on About.
+/// Milestones and community sponsorship, side by side. [padding]
+/// is 44 on the homepage, 72 on About.
 class MilestonesBand extends StatelessComponent {
   const MilestonesBand({this.padding = 44, super.key});
 

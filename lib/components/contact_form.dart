@@ -7,10 +7,11 @@ import 'package:naki_ui/theme.dart';
 import '../theme/palette.dart';
 
 /// Where enquiries go.
-const contactEmail = 'info@poddin.net';
+const contactEmail = 'hello@poddin.net';
 
-/// Contact form. Fields are validated by Naki, then the enquiry opens in the visitor's email app
-/// addressed to [contactEmail]. Swap [_send] for a request to a form backend when one exists.
+/// Contact form. Fields are validated by Naki, then the enquiry opens in the
+/// visitor's email app addressed to [contactEmail]. Swap [_send] for a request to a
+/// form backend when one exists.
 class ContactForm extends StatefulComponent {
   const ContactForm({super.key});
 
@@ -44,9 +45,7 @@ class _ContactFormState extends State<ContactForm> {
     );
     window.location.href = 'mailto:$contactEmail?subject=$subject&body=$body';
     setState(() => sent = true);
-    Future.delayed(const Duration(seconds: 10), () {
-      setState(() => sent = false);
-    });
+    Future.delayed(const Duration(seconds: 20), () => setState(() => sent = false));
   }
 
   @override
@@ -107,7 +106,10 @@ class _ContactFormState extends State<ContactForm> {
             height: const Dim.px(44),
             padding: const EdgeInsets.symmetric(horizontal: Dim.px(24)),
             onTap: _send,
-            child: const NakiText('Send message', style: TextStyle(fontWeight: FontWeight.w500)),
+            child: const NakiText(
+              'Send message',
+              style: TextStyle(fontWeight: FontWeight.w500, fontSize: Dim.px(14)),
+            ),
           ),
           if (sent)
             const Banner(
