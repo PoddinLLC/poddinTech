@@ -10,11 +10,14 @@ import '../theme/palette.dart';
 /// parent, so a card visual is never an empty rectangle. [opacity] and
 /// [blur] tune it per image.
 class BlurBackdrop extends StatelessComponent {
-  const BlurBackdrop(this.src, {this.opacity = 0.5, this.blur = 30, this.contain = false, super.key});
+  const BlurBackdrop(this.src, {this.opacity = 0.5, this.blur = 30, this.size = 420, this.contain = false, super.key});
 
   final String src;
   final double opacity;
   final double blur;
+
+  /// Width and height of the blurred square in pixels.
+  final double size;
 
   /// `contain` for logos, `cover` for photographs and screenshots.
   final bool contain;
@@ -23,7 +26,7 @@ class BlurBackdrop extends StatelessComponent {
   Component build(BuildContext context) {
     return div(
       classes: 'backdrop${contain ? ' backdrop--contain' : ''}',
-      styles: Styles(raw: {'--op': '$opacity', '--blur': '${blur}px'}),
+      styles: Styles(raw: {'--op': '$opacity', '--blur': '${blur}px', '--size': '${size}px'}),
       attributes: const {'aria-hidden': 'true'},
       [Image(src, alt: '', fit: contain ? ObjectFit.contain : ObjectFit.cover)],
     );
@@ -55,29 +58,45 @@ class PhoneShot extends StatelessComponent {
 
 /// A browser window mock with an address bar around a screenshot.
 class BrowserFrame extends StatelessComponent {
-  const BrowserFrame({required this.src, required this.alt, required this.address, this.compact = false, super.key});
+  const BrowserFrame({
+    required this.src,
+    required this.alt,
+    required this.address,
+    this.compact = false,
+    this.flush = false,
+    this.maxWidth,
+    super.key,
+  });
 
   final String src;
   final String alt;
   final String address;
   final bool compact;
 
+  /// Square off the bottom edge so the frame can sit flush against a card's bottom.
+  final bool flush;
+  final double? maxWidth;
+
   @override
   Component build(BuildContext context) {
-    return div(classes: 'browser${compact ? ' browser--compact' : ''}', [
-      div(classes: 'browser-bar', [
-        span(classes: 'dot', []),
-        span(classes: 'dot', []),
-        span(classes: 'dot', []),
-        if (address.isNotEmpty) span(classes: 'browser-address', [.text(address)]),
-      ]),
-      Image(
-        src,
-        alt: alt,
-        size: const SizeConstraints(width: Dim.percent(100)),
-        lazyLoad: true,
-      ),
-    ]);
+    return div(
+      classes: 'browser${compact ? ' browser--compact' : ''}${flush ? ' browser--flush' : ''}',
+      styles: Styles(maxWidth: maxWidth?.px),
+      [
+        div(classes: 'browser-bar', [
+          span(classes: 'dot', []),
+          span(classes: 'dot', []),
+          span(classes: 'dot', []),
+          if (address.isNotEmpty) span(classes: 'browser-address', [.text(address)]),
+        ]),
+        Image(
+          src,
+          alt: alt,
+          size: const SizeConstraints(width: Dim.percent(100)),
+          lazyLoad: true,
+        ),
+      ],
+    );
   }
 }
 

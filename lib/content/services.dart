@@ -35,6 +35,7 @@ class LogoExample extends ServiceExample {
     required this.inset,
     required this.backdropOpacity,
     required this.backdropBlur,
+    required this.backdropSize,
     super.linkLabel,
     super.linkUrl,
   });
@@ -44,6 +45,7 @@ class LogoExample extends ServiceExample {
   final double inset;
   final double backdropOpacity;
   final double backdropBlur;
+  final double backdropSize;
 }
 
 class Screenshot {
@@ -216,6 +218,7 @@ const services = [
         inset: 62,
         backdropOpacity: 0.6,
         backdropBlur: 24,
+        backdropSize: 280,
         linkLabel: 'Explore Poddin AI',
         linkUrl: 'https://poddinapp.com/bot',
       ),
@@ -229,6 +232,7 @@ const services = [
         inset: 76,
         backdropOpacity: 0.5,
         backdropBlur: 26,
+        backdropSize: 300,
       ),
       LogoExample(
         title: 'Versus Player AI',
@@ -240,6 +244,7 @@ const services = [
         inset: 66,
         backdropOpacity: 0.4,
         backdropBlur: 26,
+        backdropSize: 300,
         linkLabel: 'Explore Versus',
         linkUrl: 'https://versussongs.com',
       ),

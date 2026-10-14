@@ -9,7 +9,8 @@ abstract final class Company {
   static const summary =
       'A technology company, incorporated in December 2021, building intelligent, practical solutions for '
       'consumers and businesses of every size.';
-  static const copyright = '© 2026 Poddin Technologies Limited. All rights reserved.';
+  static const productsLine = 'PoddinApp, PoddinAI and PoddinBot, PoddinPay, and a new product coming soon';
+  static final copyright = '© ${DateTime.now().year} Poddin Technologies Limited. All rights reserved.';
 }
 
 class Milestone {

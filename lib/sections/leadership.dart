@@ -11,7 +11,15 @@ import '../content/company.dart';
 
 /// Square greyscale portrait. Greyscale keeps three differently lit photographs consistent.
 class Portrait extends StatelessComponent {
-  const Portrait({required this.leader, this.size, this.round = false, super.key});
+  const Portrait({
+    required this.leader,
+    this.size,
+    this.round = false,
+    this.founder = false,
+    this.focusY,
+    this.alt,
+    super.key,
+  });
 
   final Leader leader;
 
@@ -19,17 +27,24 @@ class Portrait extends StatelessComponent {
   final double? size;
   final bool round;
 
+  /// Tall 4:5 crop with large corners, used for the founder section.
+  final bool founder;
+
+  /// Overrides [Leader.focusY] where a crop needs a different focus.
+  final int? focusY;
+  final String? alt;
+
   @override
   Component build(BuildContext context) {
     return div(
-      classes: 'portrait${round ? ' portrait--round' : ''}',
+      classes: 'portrait${round ? ' portrait--round' : ''}${founder ? ' portrait--founder' : ''}',
       styles: Styles(width: size?.px, height: size?.px),
       [
         img(
           src: leader.image,
-          alt: 'Portrait of ${leader.name}',
+          alt: alt ?? 'Portrait of ${leader.name}',
           classes: 'portrait-img',
-          styles: Styles(raw: {'object-position': '50% ${leader.focusY}%'}),
+          styles: Styles(raw: {'object-position': '50% ${focusY ?? leader.focusY}%'}),
         ),
       ],
     );

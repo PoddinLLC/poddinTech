@@ -1,8 +1,10 @@
 import 'package:jaspr/jaspr.dart';
-import '../content/company.dart';
 
+import '../components/cta_band.dart';
 import '../components/page_shell.dart';
-import '../components/typography.dart';
+import '../content/company.dart';
+import '../sections/about_sections.dart';
+import '../sections/milestones.dart';
 
 class AboutPage extends StatelessComponent {
   const AboutPage({super.key});
@@ -12,7 +14,15 @@ class AboutPage extends StatelessComponent {
     return const PageShell(
       seo: aboutPageSeo,
       children: [
-        Band(children: [Title('Innovation begins with understanding people.', level: 1, size: 'h-hero')]),
+        AboutHero(),
+        WhoWeAre(),
+        HowWeThink(),
+        AiApproach(),
+        MissionBand(),
+        FounderSection(),
+        MilestonesBand(padding: 72),
+        LeadershipStrip(),
+        CtaBand(),
       ],
     );
   }

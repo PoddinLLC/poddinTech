@@ -1,13 +1,16 @@
 import 'package:jaspr/jaspr.dart';
 import 'package:naki_ui/naki_ui.dart';
-import '../content/company.dart';
 
+import '../components/cta_band.dart';
 import '../components/page_shell.dart';
-import '../components/typography.dart';
+import '../content/company.dart';
 import '../content/services.dart';
+import '../sections/service_sections.dart';
 
+/// One page for all four services. The copy, examples and steps come from [services].
 class ServicePage extends StatelessComponent {
   const ServicePage({required this.slug, super.key});
+
   final String slug;
 
   @override
@@ -28,7 +31,11 @@ class ServicePage extends StatelessComponent {
         description: info.lead,
       ),
       children: [
-        Band(children: [Title(slug, level: 1, size: 'h-hero')]),
+        ServiceHero(info),
+        ServiceCapabilities(info),
+        ServiceExamples(info),
+        ServiceProcess(info),
+        CtaBand(title: info.ctaTitle),
       ],
     );
   }
