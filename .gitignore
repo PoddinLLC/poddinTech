@@ -16,8 +16,3 @@ deploy.sh
 
 # build files
 build/
-
-# firebase files
-.firebase
-.firebaserc
-firebase.json
