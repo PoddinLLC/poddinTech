@@ -41,7 +41,8 @@ class ServiceHero extends StatelessComponent {
               ),
               Surface(
                 radius: 16,
-                padding: 32,
+                clip: true,
+                classes: 'facts-card',
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [

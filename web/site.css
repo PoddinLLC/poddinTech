@@ -906,3 +906,12 @@ html {
     font-size: 24px;
   }
 }
+
+/* Facts card: roomy on desktop, tighter on phones (matches the phone board). */
+.facts-card { padding: 32px; }
+@media (max-width: 640px) {
+  .facts-card { padding: 22px; }
+  .facts-card .fact-row { padding-top: 18px; margin-top: 18px; }
+  .facts-card .fact-row--first { padding-top: 0; margin-top: 0; }
+  .facts-card .fact-label { font-size: 11px; margin-bottom: 4px; }
+}
