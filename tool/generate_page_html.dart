@@ -21,6 +21,9 @@ const _shareImageWidth = 1200;
 const _shareImageHeight = 630;
 const _shareImageAlt = '${Company.name}: ${Company.tagline}';
 
+const _fontStylesheet =
+    'https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@400;500&display=swap';
+
 typedef _Page = ({String path, PageSeo seo});
 
 final _pages = <_Page>[
@@ -56,6 +59,11 @@ String _render(_Page page) {
     meta('name', 'description', description),
     '    <link rel="canonical" href="$url" data-seo="static">',
     '    <link rel="icon" type="image/png" href="/images/favicon.png">',
+    '    <link rel="preconnect" href="https://fonts.googleapis.com/">',
+    '    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>',
+    '    <link rel="stylesheet" href="$_fontStylesheet">',
+    '    <link rel="stylesheet" href="/main.css">',
+    '    <link rel="stylesheet" href="/site.css">',
     meta('property', 'og:type', 'website'),
     meta('property', 'og:site_name', _escape(Company.name)),
     meta('property', 'og:locale', 'en'),

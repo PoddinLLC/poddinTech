@@ -13,9 +13,6 @@ import 'theme/palette.dart';
 class App extends StatelessComponent {
   const App({super.key});
 
-  static const _ibmFontFamily =
-      'https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@400;500&display=swap';
-
   @override
   Component build(BuildContext context) {
     return NakiApp.router(
@@ -33,15 +30,7 @@ class App extends StatelessComponent {
         radius: 10,
       ),
       head: [
-        // theme color
         meta(name: 'theme-color', content: Palette.ground.value),
-        // fonts
-        link(href: 'https://fonts.googleapis.com/', rel: 'preconnect'),
-        link(href: 'https://fonts.gstatic.com/', rel: 'preconnect', attributes: const {'crossorigin': ''}),
-        link(href: _ibmFontFamily, rel: 'stylesheet'),
-        // styles
-        link(href: 'main.css', rel: 'stylesheet'),
-        link(href: 'site.css', rel: 'stylesheet'),
       ],
       seo: SEO(
         socialMediaBanner: 'images/og-banner.jpg',
