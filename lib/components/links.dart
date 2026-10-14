@@ -25,7 +25,7 @@ class LinkButton extends StatelessComponent {
   Component build(BuildContext context) {
     final variant = style == LinkButtonStyle.primary ? 'btn--primary' : 'btn--light';
     final classes = 'btn $variant${small ? ' btn--sm' : ''}';
-    return _SiteLink(to: to, classes: classes, external: external, child: .text(label));
+    return SiteLink(to: to, classes: classes, external: external, child: .text(label));
   }
 }
 
@@ -40,14 +40,14 @@ class TextLink extends StatelessComponent {
 
   @override
   Component build(BuildContext context) {
-    return _SiteLink(to: to, classes: 'lnk', external: external, child: .text(arrow ? '$label →' : label));
+    return SiteLink(to: to, classes: 'lnk', external: external, child: .text(arrow ? '$label →' : label));
   }
 }
 
 /// Router [Link] for in-app routes. Anchors (`/#contact`) and external URLs use a plain `<a>` so the
 /// browser handles scrolling and navigation natively.
-class _SiteLink extends StatelessComponent {
-  const _SiteLink({required this.to, required this.classes, required this.child, this.external = false});
+class SiteLink extends StatelessComponent {
+  const SiteLink({required this.to, required this.classes, required this.child, this.external = false});
 
   final String to;
   final String classes;

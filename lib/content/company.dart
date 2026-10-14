@@ -189,8 +189,8 @@ const aboutPageSeo = PageSeo(
       'Learn about Poddin Technologies, our mission, and the team turning real-world challenges into practical software and intelligent solutions.',
 );
 
-const servicesPageSeo = PageSeo(
-  title: 'Services | Poddin Technologies',
-  description:
-      'Explore custom software and AI development by Poddin Technologies. We build intuitive, scalable solutions for businesses of every size.',
-);
+// const servicesPageSeo = PageSeo(
+//   title: 'Services | Poddin Technologies',
+//   description:
+//       'Explore custom software and AI development by Poddin Technologies. We build intuitive, scalable solutions for businesses of every size.',
+// );

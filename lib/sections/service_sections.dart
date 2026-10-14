@@ -28,28 +28,28 @@ class ServiceHero extends StatelessComponent {
         div(classes: 'hero-stack', [
           const TextLink(label: '← All services', to: '/#services', arrow: false),
           div(classes: 'grid grid--center', styles: Styles(raw: {'--min': '380px', '--gap': '64px'}), [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                spacing: 24,
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              spacing: 24,
+              children: [
+                Eyebrow(service.tag),
+                Title(service.title, level: 1, size: 'h-page'),
+                Copy(service.lead, variant: 'lead', maxWidth: 540),
+                const LinkButton(label: 'Talk to our team', to: '/#contact'),
+              ],
+            ),
+            Surface(
+              radius: 16,
+              clip: true,
+              classes: 'facts-card',
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Eyebrow(service.tag),
-                  Title(service.title, level: 1, size: 'h-page'),
-                  Copy(service.lead, variant: 'lead', maxWidth: 560),
-                  const LinkButton(label: 'Talk to our team', to: '/#contact'),
+                  FactRow(label: 'Best for', value: service.bestFor, first: true),
+                  FactRow(label: 'What you get', value: service.whatYouGet),
                 ],
               ),
-              Surface(
-                radius: 16,
-                clip: true,
-                classes: 'facts-card',
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    FactRow(label: 'Best for', value: service.bestFor, first: true),
-                    FactRow(label: 'What you get', value: service.whatYouGet),
-                  ],
-                ),
-              ),
+            ),
           ]),
         ]),
       ],

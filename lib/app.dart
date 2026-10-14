@@ -4,7 +4,6 @@ import 'package:jaspr_router/jaspr_router.dart';
 import 'package:naki_ui/framework.dart';
 import 'package:naki_ui/naki_ui.dart';
 
-import 'content/company.dart';
 import 'pages/about_page.dart';
 import 'pages/home_page.dart';
 import 'pages/service_page.dart';
@@ -19,7 +18,6 @@ class App extends StatelessComponent {
   @override
   Component build(BuildContext context) {
     return NakiApp.router(
-      title: Company.name,
       locale: 'en',
       basePath: '/',
       favicon: 'images/favicon.png',
@@ -45,9 +43,6 @@ class App extends StatelessComponent {
         link(href: 'site.css', rel: 'stylesheet'),
       ],
       seo: SEO(
-        title: Company.name,
-        description: Company.tagline,
-        logo: 'images/logo.png',
         socialMediaBanner: 'images/og-banner.jpg',
         url: kDebugMode ? null : 'https://poddin.net',
         robots: [

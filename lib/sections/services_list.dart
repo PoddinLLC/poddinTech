@@ -1,5 +1,6 @@
 import 'package:jaspr/dom.dart' hide Padding, Transform, Visibility;
 import 'package:jaspr/jaspr.dart';
+import 'package:jaspr_router/jaspr_router.dart';
 
 import '../components/page_shell.dart';
 import '../components/typography.dart';
@@ -25,10 +26,10 @@ class ServicesSection extends StatelessComponent {
           ]),
           div(classes: 'service-list', [
             for (final service in services)
-              a(
-                href: '/services/${service.slug}',
+              Link(
+                to: '/services/${service.slug}',
                 classes: 'service-row row-hover',
-                [
+                children: [
                   span(classes: 'service-number', [.text(service.number)]),
                   div(classes: 'service-body', [
                     div(classes: 'service-title', [.text(service.listTitle)]),

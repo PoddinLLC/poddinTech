@@ -3,3 +3,5 @@
 .claude
 .dart_tool
 _* 
+build/
+.firebase/

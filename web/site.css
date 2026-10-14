@@ -92,13 +92,19 @@ img {
   font-weight: 500;
   text-wrap: balance;
 }
+.h-page {
+  font-size: 50px;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
 .h-display {
-  font-size: 60px;
+  font-size: 52px;
   line-height: 1.08;
   letter-spacing: -0.015em;
 }
 .h-hero {
-  font-size: 56px;
+  font-size: 54px;
   line-height: 1.1;
   letter-spacing: -0.015em;
   text-wrap: balance;
@@ -126,7 +132,7 @@ img {
   font-size: 19px;
   line-height: 1.6;
   color: var(--body);
-  text-wrap: pretty;
+  text-wrap: balance;
   margin: 0;
 }
 
@@ -134,7 +140,7 @@ img {
   font-size: 17px;
   line-height: 1.7;
   color: var(--body);
-  text-wrap: pretty;
+  text-wrap: balance;
   margin: 0;
 }
 
@@ -292,10 +298,6 @@ html {
 }
 
 /* Header */
-.site-header {
-  background: var(--ground);
-  border-bottom: 1px solid var(--line);
-}
 .header-row {
   display: flex;
   align-items: center;
@@ -555,17 +557,11 @@ html {
   line-height: 1.18;
   text-wrap: balance;
 }
-.h-page {
-  font-size: 52px;
-  line-height: 1.1;
-  letter-spacing: -0.015em;
-  text-wrap: balance;
-}
 .text {
   font-size: 16px;
   line-height: 1.55;
   color: var(--body);
-  text-wrap: pretty;
+  text-wrap: balance;
   margin: 0;
 }
 .eyebrow--grey {
@@ -908,17 +904,36 @@ html {
 }
 
 /* Facts card: roomy on desktop, tighter on phones (matches the phone board). */
-.facts-card { padding: 32px; }
+.facts-card {
+  padding: 32px;
+}
 @media (max-width: 640px) {
-  .facts-card { padding: 22px; }
-  .facts-card .fact-row { padding-top: 18px; margin-top: 18px; }
-  .facts-card .fact-row--first { padding-top: 0; margin-top: 0; }
-  .facts-card .fact-label { font-size: 11px; margin-bottom: 4px; }
+  .facts-card {
+    padding: 22px;
+  }
+  .facts-card .fact-row {
+    padding-top: 18px;
+    margin-top: 18px;
+  }
+  .facts-card .fact-row--first {
+    padding-top: 0;
+    margin-top: 0;
+  }
+  .facts-card .fact-label {
+    font-size: 11px;
+    margin-bottom: 4px;
+  }
 }
 
 /* Service hero: back link above the grid. Stretches the grid to the full container (like the About hero). */
-.hero-stack { display: flex; flex-direction: column; gap: 40px; }
-.hero-stack > .lnk { align-self: flex-start; }
+.hero-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.hero-stack > .lnk {
+  align-self: flex-start;
+}
 
 /* Sticky header. Anchored sections stop just below it: PageMeta measures the header and sets --header-h. */
 .site-header {
@@ -935,9 +950,10 @@ section[id] {
    (position: fixed) inside the header's box. */
 .site-header {
   background: transparent;
+  border-bottom: 1px solid var(--line);
 }
 .site-header::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   z-index: -1;

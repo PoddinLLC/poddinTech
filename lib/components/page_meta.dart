@@ -81,7 +81,7 @@ class _PageMetaState extends State<PageMeta> {
       // The sticky header covers the top of the viewport, so the target belongs just below it. Publishing the
       // measured height as --header-h lets `section[id] { scroll-margin-top }` apply it to every anchor jump.
       final offset = document.querySelector('.site-header')?.getBoundingClientRect().height ?? 0;
-      (document.documentElement as HTMLElement?)?.style.setProperty('--header-h', '${offset}px');
+      document.body?.style.setProperty('--header-h', '${offset}px');
 
       if ((target.getBoundingClientRect().top - offset).abs() < 2) return;
       target.scrollIntoView(ScrollIntoViewOptions(behavior: 'instant', block: 'start'));

@@ -95,15 +95,8 @@ class _SiteHeaderState extends State<SiteHeader> {
 
   List<Component> _desktopActions(String location) {
     return [
-      Row(
-        spacing: 32,
-        children: [
-          const Brand(showName: false),
-          _desktopNavItems(location),
-        ],
-      ),
-
-      const LinkButton(label: 'Get a quote', to: '/#contact', small: true),
+      const Brand(showName: false),
+      _desktopNavItems(location),
     ];
   }
 
@@ -156,6 +149,7 @@ class _SiteHeaderState extends State<SiteHeader> {
       div(classes: 'container header-row', [
         if (width < 800) ...[const Brand(showName: false), _menuButton()],
         if (width >= 800) ..._desktopActions(location),
+        if (width >= 1024 && location.contains('/about')) LinkButton(label: 'Contact us', to: '/#contact', small: true),
         _drawer(location),
       ]),
     ]);

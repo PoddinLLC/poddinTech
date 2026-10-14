@@ -21,16 +21,7 @@ class _FooterColumn extends StatelessComponent {
 }
 
 Component _footerLink(String label, String to, {bool external = false}) {
-  if (external) {
-    return a(
-      href: to,
-      classes: 'lnk footer-link',
-      target: Target.blank,
-      attributes: const {'rel': 'noopener noreferrer'},
-      [.text(label)],
-    );
-  }
-  return a(href: to, classes: 'lnk footer-link', [.text(label)]);
+  return SiteLink(to: to, classes: 'lnk footer-link', external: external, child: .text(label));
 }
 
 class SiteFooter extends StatelessComponent {
