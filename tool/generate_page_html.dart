@@ -21,8 +21,8 @@ const _shareImageWidth = 1200;
 const _shareImageHeight = 630;
 const _shareImageAlt = '${Company.name}: ${Company.tagline}';
 
-const _fontStylesheet =
-    'https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@400;500&display=swap';
+/// Self-hosted in web/fonts and declared in web/site.css. Preloaded so text renders in Plex on first paint.
+const _preloadedFonts = ['ibm-plex-sans-latin.woff2', 'ibm-plex-serif-500-latin.woff2'];
 
 typedef _Page = ({String path, PageSeo seo});
 
@@ -59,9 +59,8 @@ String _render(_Page page) {
     meta('name', 'description', description),
     '    <link rel="canonical" href="$url" data-seo="static">',
     '    <link rel="icon" type="image/png" href="/images/favicon.png">',
-    '    <link rel="preconnect" href="https://fonts.googleapis.com/">',
-    '    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>',
-    '    <link rel="stylesheet" href="$_fontStylesheet">',
+    for (final font in _preloadedFonts)
+      '    <link rel="preload" as="font" type="font/woff2" href="/fonts/$font" crossorigin>',
     '    <link rel="stylesheet" href="/main.css">',
     '    <link rel="stylesheet" href="/site.css">',
     // The images above the fold. The app only requests them once it has booted and rendered, so preloading
