@@ -4,8 +4,9 @@ abstract final class Company {
   static const name = 'Poddin Technologies Limited';
   static const shortName = 'Poddin Technologies';
 
-  /// Public origin, used for canonical and social-preview URLs, which must be absolute.
-  static const siteUrl = 'https://poddin.net';
+  /// Public origin, used for canonical and social-preview URLs, which must be absolute. Change this to the
+  /// custom domain once it is connected to the Firebase Hosting site, then regenerate the page HTML and redeploy.
+  static const siteUrl = 'https://poddintech.web.app';
   static const tagline = 'Technology that turns real-world challenges into possibilities.';
   static const intro =
       'We build intelligent, practical solutions for consumers and businesses of every size, bringing together modern software engineering, emerging technologies and artificial intelligence.';

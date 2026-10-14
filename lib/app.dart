@@ -4,6 +4,7 @@ import 'package:jaspr_router/jaspr_router.dart';
 import 'package:naki_ui/framework.dart';
 import 'package:naki_ui/naki_ui.dart';
 
+import 'content/company.dart';
 import 'pages/about_page.dart';
 import 'pages/home_page.dart';
 import 'pages/service_page.dart';
@@ -44,7 +45,7 @@ class App extends StatelessComponent {
       ],
       seo: SEO(
         socialMediaBanner: 'images/og-banner.jpg',
-        url: kDebugMode ? null : 'https://poddin.net',
+        url: kDebugMode ? null : Company.siteUrl,
         robots: [
           'index',
           'follow',

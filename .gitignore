@@ -5,3 +5,6 @@
 _* 
 build/
 .firebase/
+.firebaserc
+firebase.json
+
