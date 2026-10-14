@@ -915,3 +915,7 @@ html {
   .facts-card .fact-row--first { padding-top: 0; margin-top: 0; }
   .facts-card .fact-label { font-size: 11px; margin-bottom: 4px; }
 }
+
+/* Service hero: back link above the grid. Stretches the grid to the full container (like the About hero). */
+.hero-stack { display: flex; flex-direction: column; gap: 40px; }
+.hero-stack > .lnk { align-self: flex-start; }

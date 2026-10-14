@@ -23,12 +23,11 @@ class ServiceHero extends StatelessComponent {
       top: 56,
       bottom: 80,
       children: [
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          spacing: 40,
-          children: [
-            const TextLink(label: '← All services', to: '/#services', arrow: false),
-            div(classes: 'grid grid--center', styles: Styles(raw: {'--min': '380px', '--gap': '64px'}), [
+        // A plain stretched flex container, not a start-aligned Column: a Column would shrink the grid to its
+        // content width, so the number of columns would depend on how much text each service has.
+        div(classes: 'hero-stack', [
+          const TextLink(label: '← All services', to: '/#services', arrow: false),
+          div(classes: 'grid grid--center', styles: Styles(raw: {'--min': '380px', '--gap': '64px'}), [
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 spacing: 24,
@@ -51,9 +50,8 @@ class ServiceHero extends StatelessComponent {
                   ],
                 ),
               ),
-            ]),
-          ],
-        ),
+          ]),
+        ]),
       ],
     );
   }
