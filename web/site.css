@@ -929,3 +929,20 @@ html {
 section[id] {
   scroll-margin-top: var(--header-h, 66px);
 }
+
+/* Frosted header: a translucent layer blurs 12px of whatever scrolls beneath it. The blur sits on a
+   pseudo-element, not the header, because backdrop-filter on an ancestor would trap the menu drawer
+   (position: fixed) inside the header's box. */
+.site-header {
+  background: transparent;
+}
+.site-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: rgba(251, 249, 248, 0.8);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  pointer-events: none;
+}
