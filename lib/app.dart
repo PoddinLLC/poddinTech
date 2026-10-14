@@ -48,6 +48,7 @@ class App extends StatelessComponent {
         title: Company.name,
         description: Company.tagline,
         logo: 'images/logo.png',
+        socialMediaBanner: 'images/og-banner.jpg',
         url: kDebugMode ? null : 'https://poddin.net',
         robots: [
           'index',

@@ -14,8 +14,12 @@ import 'dart:io';
 import 'package:poddin_tech/content/company.dart';
 import 'package:poddin_tech/content/services.dart';
 
-/// Shown in link previews. Must be an absolute URL, and should be square or 1.91:1.
-const _shareImage = '${Company.siteUrl}/images/logo.png';
+/// Shown in link previews. Must be an absolute URL. 1200 x 630 (1.91:1) is what Facebook, LinkedIn, WhatsApp
+/// and X's large card all expect.
+const _shareImage = '${Company.siteUrl}/images/og-banner.jpg';
+const _shareImageWidth = 1200;
+const _shareImageHeight = 630;
+const _shareImageAlt = '${Company.name}: ${Company.tagline}';
 
 typedef _Page = ({String path, PageSeo seo});
 
@@ -48,7 +52,6 @@ String _render(_Page page) {
     '',
     '<head>',
     '    <meta charset="utf-8">',
-    '    <meta name="viewport" content="width=device-width, initial-scale=1.0">',
     '    <title>$title</title>',
     meta('name', 'description', description),
     '    <link rel="canonical" href="$url" data-seo="static">',
@@ -60,10 +63,14 @@ String _render(_Page page) {
     meta('property', 'og:title', title),
     meta('property', 'og:description', description),
     meta('property', 'og:image', _shareImage),
-    meta('name', 'twitter:card', 'summary'),
+    meta('property', 'og:image:width', '$_shareImageWidth'),
+    meta('property', 'og:image:height', '$_shareImageHeight'),
+    meta('property', 'og:image:alt', _escape(_shareImageAlt)),
+    meta('name', 'twitter:card', 'summary_large_image'),
     meta('name', 'twitter:title', title),
     meta('name', 'twitter:description', description),
     meta('name', 'twitter:image', _shareImage),
+    meta('name', 'twitter:image:alt', _escape(_shareImageAlt)),
     '    <script defer src="/main.client.dart.js"></script>',
     '</head>',
     '',

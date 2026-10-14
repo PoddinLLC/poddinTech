@@ -32,3 +32,6 @@ dart run tool/generate_page_html.dart --check  # exit 1 if any file is out of da
 
 Hosting must serve a directory's `index.html` for the bare path (`/about` -> `about/index.html`), which is the
 default on Firebase Hosting, Netlify, Vercel, GitHub Pages and Cloudflare Pages.
+
+The share image is `web/images/og-banner.jpg` (1200 x 630, about 140 KB: WhatsApp skips preview images much larger than
+300 KB). To change it, replace the file and keep that size; the generator references it by path.
