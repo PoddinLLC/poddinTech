@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:jaspr/jaspr.dart';
+import 'package:jaspr/jaspr.dart' hide Element;
 import 'package:naki_ui/framework.dart' hide Document;
 
 import '../content/company.dart';
@@ -37,6 +37,7 @@ class _PageMetaState extends State<PageMeta> {
   @override
   void initState() {
     super.initState();
+    _dropStaticMeta();
     _apply();
     _showPage();
     // Following an in-page link such as /#products changes only the hash. The browser then looks for the
@@ -112,6 +113,16 @@ class _PageMetaState extends State<PageMeta> {
       listener.cancel();
     }
     _interactionListeners.clear();
+  }
+
+  /// Removes the tags each page's HTML ships with for crawlers (see `tool/generate_page_html.dart`). Once the
+  /// app is running, NakiApp and this component keep the title and meta tags current as the visitor
+  /// navigates, and keeping both would leave duplicates.
+  void _dropStaticMeta() {
+    final stale = document.querySelectorAll('[data-seo="static"]');
+    for (var i = 0; i < stale.length; i++) {
+      (stale.item(i) as Element?)?.remove();
+    }
   }
 
   void _apply() {

@@ -1,5 +1,7 @@
 import 'package:naki_ui/naki_ui.dart';
 
+import 'company.dart';
+
 class Capability {
   const Capability(this.icon, this.title, this.text);
 
@@ -501,6 +503,10 @@ const services = [
     ctaTitle: 'Is there a process your team would like to simplify?',
   ),
 ];
+
+/// Title and description of a service page. Shared by the page itself and by `tool/generate_page_html.dart`.
+PageSeo serviceSeo(ServiceInfo service) =>
+    PageSeo(title: '${service.title} | ${Company.shortName}', description: service.lead);
 
 ServiceInfo? serviceBySlug(String slug) {
   for (final service in services) {

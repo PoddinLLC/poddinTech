@@ -3,7 +3,6 @@ import 'package:naki_ui/naki_ui.dart';
 
 import '../components/cta_band.dart';
 import '../components/page_shell.dart';
-import '../content/company.dart';
 import '../content/services.dart';
 import '../sections/service_sections.dart';
 
@@ -26,10 +25,7 @@ class ServicePage extends StatelessComponent {
     }
 
     return PageShell(
-      seo: PageSeo(
-        title: '${info.title} | ${Company.shortName}',
-        description: info.lead,
-      ),
+      seo: serviceSeo(info),
       children: [
         ServiceHero(info),
         ServiceCapabilities(info),
