@@ -1,10 +1,23 @@
+# macOS
 .DS_Store
+
+# agent skill files
 .agents
 .claude
+
+# dart
 .dart_tool
-_* 
+
+# local files
+_*
+
+# script files
+deploy.sh
+
+# build files
 build/
-.firebase/
+
+# firebase files
+.firebase
 .firebaserc
 firebase.json
-
